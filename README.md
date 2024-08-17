@@ -53,9 +53,10 @@ kubectl get pods -o=jsonpath='{.items[0].status.phase}'
 
 - To execute a command in a container that is inside a Pod:
 ```bash
-# attaching stdin to the container so it can accept stdin from my keyboard
-# attching pseudo-TTY to have container termanila behave like a normal (colors, formatting, etc)
-kubectl exec --stdin --tty [pod-name] -c [container-name] -- [command]
+# attaching stdin (-i) to the container so it can accept stdin from my keyboard
+# attching pseudo-TTY (-t) to have container termanila behave like a normal (colors, formatting, etc)
+# this example opens a shell terminal in container with busy-box-example inside Pod with name core-k8s
+kubectl exec core-k8s -c busy-box-example -i -t -- sh
 ```
 
 - List all processes running in a linux machine:
@@ -157,3 +158,5 @@ We can get the created Pod's JSON definition with the command `kubectl get pods 
 To filter the Json to please [see](#frequetly-used-commands).
 
 ## Other Experiment Notes
+
+- [Build A Pod from Scratch](./other-notes/1-pod-from-scratch.md)
