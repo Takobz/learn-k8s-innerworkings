@@ -92,3 +92,19 @@ bin  lib  lib64  proc
 ```
 
 There we go we were able to isolate the filesystem, but we aren't done here.
+
+#### Isolating the Bash Process
+The above notes describe how we can isolate a filesystem for the bash program. If we run:  
+```bash
+bash-5.2#  ps -ax
+```
+We will get a result like this:
+```bash
+# shows all the program in our host machine
+```
+We can see that doing a `ps -ax` which is to list all running processes our isolated bash can see PIDs of other programs in the host.  
+This means our isolated bash can actually `kill <Some-PID>`, this isn't good because now our bash can actually disrupt our host's critical process
+
+
+##### Linux unshare to the rescue!
+To avoid this from happening we will need to use the `unshare` command when running our chroot on the box root.

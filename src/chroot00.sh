@@ -25,5 +25,5 @@ cp -r /lib64/* /home/namespace/box/lib64
 mount -t proc proc /home/namespace/box/proc
 
 # run the bash shell in chroot environment
-chroot /home/namespace/box /bin/bash
+chroot /home/namespace/box !#/bin/bash
 
