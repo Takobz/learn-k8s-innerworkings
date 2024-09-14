@@ -103,7 +103,7 @@ We will get a result like this:
 # shows all the program in our host machine
 ```
 We can see that doing a `ps -ax` which is to list all running processes our isolated bash can see PIDs of other programs in the host.  
-This means our isolated bash can actually `kill <Some-PID>`, this isn't good because now our bash can actually disrupt our host's critical process
+This means our isolated bash can actually `kill <Some-PID-In-The-Host>`, this isn't good because now our bash can actually disrupt our host's critical process
 
 
 ##### Linux unshare to the rescue!
